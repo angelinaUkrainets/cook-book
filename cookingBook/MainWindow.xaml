@@ -15,9 +15,11 @@
         <StackPanel>
             <Label Content="C2okB2ok" Style="{StaticResource nameLabel}" Margin="0, 20, 0, 0"/>
 
-            <TextBox Name="login" ToolTip="Login" Template="{StaticResource templateRegistration}" FontSize="20" Margin="0, 70, 0, 0"/>
+            <TextBox Name="login" ToolTip="Login" Template="{StaticResource templateRegistration}" FontSize="20" Margin="0, 70, 0, 10"/>
 
-            <PasswordBox Name="password" FocusManager.IsFocusScope="True" ToolTip="Password" Template="{DynamicResource passwordTemplate}"  Margin="0, 20"/>
+            <Label Content="Password" Style="{StaticResource simpleLabel}" FontSize="15"/>
+
+            <PasswordBox Name="password" Template="{DynamicResource passwordTemplate}" FontSize="20"  Margin="0, 0, 0, 20"/>
 
             <Label Content="Forgot your password?" Style="{StaticResource simpleLabel}"/>
 

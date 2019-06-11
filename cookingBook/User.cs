@@ -16,17 +16,7 @@ namespace cookingBook
         public string Surname { get; set; }
 
         public string Login { get; set; }
-
-        private string _email;
-        [Required, StringLength(50), EmailAddress]
-        public string Email {
-            get { return _email; }
-            set
-            {
-                if (_email == value) return;
-                _email = value;
-            }
-        }
+        public string Email { get; set; }
 
         public string Number { get; set; }
 
