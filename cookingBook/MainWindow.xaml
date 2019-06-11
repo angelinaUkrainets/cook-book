@@ -1,0 +1,30 @@
+﻿<Window x:Class="cookingBook.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:cookingBook"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="400" Width="400">
+    <Grid>
+
+        <Grid.Background>
+            <ImageBrush ImageSource="images/background.jpg"/>
+        </Grid.Background>
+
+        <StackPanel>
+            <Label Content="C2okB2ok" Style="{StaticResource nameLabel}" Margin="0, 20, 0, 0"/>
+
+            <TextBox Name="login" ToolTip="Login" Template="{StaticResource templateRegistration}" FontSize="20" Margin="0, 70, 0, 0"/>
+
+            <PasswordBox Name="password" FocusManager.IsFocusScope="True" ToolTip="Password" Template="{DynamicResource passwordTemplate}"  Margin="0, 20"/>
+
+            <Label Content="Forgot your password?" Style="{StaticResource simpleLabel}"/>
+
+            <Label Content="Submit" FontSize="15" Style="{StaticResource simpleLabel}" Margin="0, 20, 0, 10" MouseDoubleClick="Label_MouseDoubleClick"/>
+
+            <Label Content="Register" FontSize="15" Style="{StaticResource simpleLabel}" MouseDoubleClick="Label_MouseDoubleClick_1"/>
+        </StackPanel>
+
+    </Grid>
+</Window>

@@ -1,0 +1,122 @@
+﻿<Application x:Class="cookingBook.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:cookingBook"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <Style x:Key="nameLabel" TargetType="Label">
+                <Setter Property="Foreground" Value="#fff7e6"/>
+                <Setter Property="FontSize" Value="40"/>
+                <Setter Property="FontWeight" Value="Heavy"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Label">
+                            <ContentPresenter HorizontalAlignment="Center"/>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Foreground" Value="White"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="simpleLabel" TargetType="Label">
+                <Setter Property="Foreground" Value="#fff7e6"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Label">
+                            <ContentPresenter HorizontalAlignment="Center"/>
+                            <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            
+            <Style x:Key="textBoxRegistration" TargetType="Control">
+                <Setter Property="Height" Value="30"/>
+                <Setter Property="Width" Value="150"/>
+                <Setter Property="Background" Value="#fff7e6"/>
+                <Setter Property="Foreground" Value="#000000"/>
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+            
+            <ControlTemplate x:Key="templateRegistration" TargetType="{x:Type TextBox}">
+            <Grid>
+                <Border Height="{TemplateBinding Height}" Width="150" x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
+                    <ScrollViewer x:Name="PART_ContentHost" Focusable="False" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                </Border>
+                <TextBlock  FontFamily="Arial" FontSize="20" Foreground="Black" Margin="0, 4, 0, 0" HorizontalAlignment="Center" Visibility="Collapsed" Name="textblockText" IsHitTestVisible="False" Text="{TemplateBinding Property=ToolTip}" />
+                </Grid>
+                <ControlTemplate.Triggers>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="Text" Value=""/>
+                    </MultiTrigger.Conditions>
+                    <Setter Property="Visibility" TargetName="textblockText" Value="Visible"/>
+                </MultiTrigger>
+            </ControlTemplate.Triggers>
+            </ControlTemplate>
+
+            <ControlTemplate TargetType="{x:Type PasswordBox}" x:Key="passwordTemplate">
+            <Grid>
+                <Border Height="{TemplateBinding Height}" Width="150" x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
+                    <ScrollViewer x:Name="PART_ContentHost" Focusable="False" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                </Border>
+
+                <TextBlock FontFamily="Arial"  FontSize="20" HorizontalAlignment="Center" Margin="0, 4, 0, 0" Foreground="Black" Visibility="Visible" x:Name="textblockText2" IsHitTestVisible="False" Text="{TemplateBinding Property=ToolTip}" />
+            </Grid>
+            <ControlTemplate.Triggers>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+
+                        <Condition Property="Tag" Value="f"/>
+                        <!--PassIsNotEmpty property (default vaalue is "f")-->
+                    </MultiTrigger.Conditions>
+                    <Setter Property="Visibility" TargetName="textblockText2" Value="Visible"/>
+                </MultiTrigger>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Foreground" Value="DimGray" />
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+
+            <ControlTemplate x:Key="radioButtonTemplate" TargetType="RadioButton">
+                <Grid Margin="20, 10, 0, 0" HorizontalAlignment="Center">
+               
+                <Ellipse Name="el1" Height="10" Width="10" HorizontalAlignment="Left">
+                        <Ellipse.Fill>
+                        <SolidColorBrush Color="#fcc42e"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                <Ellipse Name="el2" Height="5" Width="5" Margin="2.5 0 0 0" HorizontalAlignment="Left" Visibility="Hidden">
+                        <Ellipse.Fill>
+                            <SolidColorBrush Color="Black"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                <TextBlock Foreground="White" Margin="20 0 0 0" Width="150">
+                        <ContentPresenter  />
+                </TextBlock>
+            </Grid>
+                <ControlTemplate.Triggers>
+                    <Trigger Property="IsChecked" Value="True">
+                        <!--<Setter Property="RenderTransform">
+                            <Setter.Value>
+                                <ScaleTransform ScaleX="0.9" ScaleY="0.9"/>
+                            </Setter.Value>
+                        </Setter>-->
+                        <Setter Property="RenderTransformOrigin" Value="0.5,0.5" />
+                        <Setter TargetName="el2" Property="Visibility" Value="Visible"/>
+                </Trigger>
+                </ControlTemplate.Triggers>
+            </ControlTemplate>
+
+    </Application.Resources>
+</Application>
